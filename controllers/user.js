@@ -1,5 +1,8 @@
 import { db } from "../db.js";
 
+
+//PARA BUSCAR OS PRODUTOS:
+
 export const getProdutos = (_, res) => {
   const q = "SELECT * FROM produtos";
 
@@ -9,6 +12,8 @@ export const getProdutos = (_, res) => {
     return res.status(200).json(data);
   });
 };
+
+//PARA ADICIONAR OS PRODUTOS:
 
 export const addProduto = (req, res) => {
   const q =
@@ -27,6 +32,8 @@ export const addProduto = (req, res) => {
   });
 };
 
+//PARA ATUALIZAR/EDITAR OS PRODUTOS:
+
 export const updateProduto = (req, res) => {
   const q =
     "UPDATE produtos SET `descricao` = ?, `valor` = ?, `tipo` = ? WHERE `id` = ?";
@@ -43,6 +50,7 @@ export const updateProduto = (req, res) => {
     return res.status(200).json("Usuário atualizado com sucesso.");
   });
 };
+//PARA DELETAR OS PRODUTOS: 
 
 export const deleteProduto = (req, res) => {
   const q = "DELETE FROM produtos WHERE `id` = ?";
