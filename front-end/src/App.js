@@ -9,7 +9,7 @@ import axios from "axios";
 
 
 
-const Container = styled.div`
+const Container = styled.div`     //ESTILIZACAO DO PRIMEIRO COMPONENTE (Container)
   width: 100%;
   max-width: 800px;
   margin-top: 20px;
@@ -19,7 +19,7 @@ const Container = styled.div`
   gap: 10px;
 `;
 
-const Title = styled.h2``;
+const Title = styled.h2``;     //string vazia porque o titulo nao vai ter uma estilizacao especifica
 
 
 function App() {
@@ -48,7 +48,7 @@ function App() {
       <Form onEdit={onEdit} setOnEdit={setOnEdit} getProdutos={getProdutos} />
         <Grid setOnEdit={setOnEdit} produtos={produtos} setProdutos={setProdutos} />
     </Container>
-    <ToastContainer autoClose={3000} position={toast.POSITION.BOTTOM_LEFT} />
+    <ToastContainer autoClose={3000} position={toast.POSITION.BOTTOM_LEFT} />             //POSICAO DO FEEDBACK
     <GlobalStyle />
     
     </>
