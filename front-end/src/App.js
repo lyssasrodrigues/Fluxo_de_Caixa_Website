@@ -9,7 +9,7 @@ import axios from "axios";
 
 
 
-const Container = styled.div`     //ESTILIZACAO DO PRIMEIRO COMPONENTE (Container)
+const Container = styled.div`     //ESTILIZACAO DO COMPONENTE Container
   width: 100%;
   max-width: 800px;
   margin-top: 20px;
@@ -24,19 +24,19 @@ const Title = styled.h2``;     //string vazia porque o titulo nao vai ter uma es
 
 function App() {
   
-  const [produtos, setProdutos] = useState([]);
-  const [onEdit, setOnEdit] = useState(null);
+  const [produtos, setProdutos] = useState([]);          //receber os produtos do banco de dados
+  const [onEdit, setOnEdit] = useState(null);           //para editar esses produtos
 
-  const getProdutos = async () => {
+  const getProdutos = async () => {                  //async porque vai esperar o banco de dados retornar os produtos
     try {
-      const res = await axios.get("http://localhost:8800"); 
-      setProdutos(res.data.sort((a, b) => (a.descricao> b.descricao ? 1 : -1)));
+      const res = await axios.get("http://localhost:8800");                         //local do nosso projeto
+      setProdutos(res.data.sort((a, b) => (a.descricao> b.descricao ? 1 : -1)));    //vai ordenar a descricao dos produtos na tabela por ordem alfabetica
     } catch (error) {
       toast.error(error);
     }
   };
 
-  useEffect(() => {
+  useEffect(() => {               //useeffect recebe a funcao e faz seu recarregamento
     getProdutos();
   }, [setProdutos]);
 
@@ -46,7 +46,7 @@ function App() {
     <Container>  
       <Title>FLUXO DE CAIXA</Title>
       <Form onEdit={onEdit} setOnEdit={setOnEdit} getProdutos={getProdutos} />
-        <Grid setOnEdit={setOnEdit} produtos={produtos} setProdutos={setProdutos} />
+        <Grid setOnEdit={setOnEdit} produtos={produtos} setProdutos={setProdutos} />    //receber no grid os produtos
     </Container>
     <ToastContainer autoClose={3000} position={toast.POSITION.BOTTOM_LEFT} />             //POSICAO DO FEEDBACK
     <GlobalStyle />
