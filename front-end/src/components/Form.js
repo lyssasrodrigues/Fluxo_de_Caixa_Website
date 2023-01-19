@@ -77,11 +77,11 @@ const Form = ({ getProdutos, onEdit, setOnEdit }) => {
           valor: produto.valor.value,
           tipo: produto.tipo.value,
         })
-        .then(({ data }) => toast.success(data))
+        .then(({ data }) => toast.success(data))             
         .catch(({ data }) => toast.error(data));
     } else {
       await axios
-        .post("http://localhost:8800/", {
+        .post("http://localhost:8800/", {                //a diferenca para o put é que nao precisa passar o id
             descricao: produto.descricao.value,
             valor: produto.valor.value,
             tipo: produto.tipo.value,
@@ -94,7 +94,7 @@ const Form = ({ getProdutos, onEdit, setOnEdit }) => {
     produto.valor.value = "";
     produto.tipo.value = "";
 
-    setOnEdit(null);
+    setOnEdit(null);           //para poder fazer uma inclusao depois da edicao sem dar conflitos
     getProdutos();
   };
 
