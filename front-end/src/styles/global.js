@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
+//A biblioteca styled-components é uma biblioteca do react que faz a estilizacao dos componentes. Ele permita a escrita de codigos CSS dentro do JS
 
-
+//ESTILIZACAO GLOBAL:
 const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
