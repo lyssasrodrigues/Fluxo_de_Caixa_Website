@@ -19,16 +19,16 @@ export const addProduto = (req, res) => {
   const q =
     "INSERT INTO produtos(`descricao`, `valor`, `tipo`) VALUES(?)";
 
-  const values = [
+  const values = [                    //array recebendo os parametros do body
     req.body.descricao,
     req.body.valor,
     req.body.tipo,
   ];
 
-  db.query(q, [values], (err) => {
+  db.query(q, [values], (err) => {              //chamando o banco
     if (err) return res.json(err);
 
-    return res.status(200).json("Usuário criado com sucesso.");
+    return res.status(200).json("Usuário criado com sucesso.");            //texto que retorna para o usuario quando ele faz uma acao
   });
 };
 
@@ -47,7 +47,7 @@ export const updateProduto = (req, res) => {
   db.query(q, [...values, req.params.id], (err) => {
     if (err) return res.json(err);
 
-    return res.status(200).json("Usuário atualizado com sucesso.");
+    return res.status(200).json("Usuário atualizado com sucesso.");      //texto que retorna para o usuario quando ele faz a acao de atualizar
   });
 };
 //PARA DELETAR OS PRODUTOS: 
@@ -58,6 +58,6 @@ export const deleteProduto = (req, res) => {
   db.query(q, [req.params.id], (err) => {
     if (err) return res.json(err);
 
-    return res.status(200).json("Usuário deletado com sucesso.");
+    return res.status(200).json("Usuário deletado com sucesso.");       //texto que retorna para o usuario quando ele faz a acao de excluir
   });
 };
