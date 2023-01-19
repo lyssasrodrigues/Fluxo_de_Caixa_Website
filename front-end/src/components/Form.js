@@ -67,12 +67,12 @@ const Form = ({ getProdutos, onEdit, setOnEdit }) => {
       !produto.valor.value ||
       !produto.tipo.value 
     ) {
-      return toast.warn("Preencha todos os campos!");
+      return toast.warn("Preencha todos os campos!");          //retornando esse texto para o usuario se as informacaoes nao forem preenchidas
     }
 
     if (onEdit) {
       await axios
-        .put("http://localhost:8800/" + onEdit.id, {
+        .put("http://localhost:8800/" + onEdit.id, {        
           descricao: produto.descricao.value,
           valor: produto.valor.value,
           tipo: produto.tipo.value,
