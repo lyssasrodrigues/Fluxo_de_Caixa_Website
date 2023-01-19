@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { toast } from "react-toastify";
 
-const FormContainer = styled.form` 
+const FormContainer = styled.form`  //FormContainer-componente (FORMULARIO DO SITE)
   display: flex;
   align-items: center;
   gap: 30px;
@@ -103,7 +103,7 @@ const Form = ({ getProdutos, onEdit, setOnEdit }) => {
     <FormContainer ref={ref} onSubmit={handleSubmit}>
       <InputArea>
         <Label htmlFor="descricao">Descrição</Label>
-        <Input type="text" id="descricao" name="descricao" />
+        <Input type="text" id="descricao" name="descricao" />       //Utilizando aqui os mesmos nomes do banco de dados
       </InputArea>
       <InputArea>
         <Label htmlFor="valor">Valor</Label>
